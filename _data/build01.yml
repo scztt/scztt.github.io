@@ -1,0 +1,24 @@
+- name: test 1
+  description: do a thing
+  time: 0:33
+  result: pass
+- name: test 2
+  description: do a thing
+  time: 0:33
+  result: pass
+- name: test 3
+  description: do a thing
+  time: 0:33
+  result: pass
+- name: test 4
+  description: do a thing
+  time: 0:33
+  result: FAIL
+- name: test 5
+  description: do a thing
+  time: 0:33
+  result: pass
+- name: test 6
+  description: do a thing
+  time: 0:33
+  result: pass

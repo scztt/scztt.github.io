@@ -11,6 +11,14 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type='text/javascript' src='./dynatable/vendor/jquery-1.7.2.min.js'></script>
+    <script type='text/javascript' src='./dynatable/jquery.dynatable.js'></script>
+    <script>
+      $.dynatableSetup({features: {pushState: false}});
+      $(document).ready( function() {
+        $('table').dynatable();
+      });
+    </script>
   </head>
   <body>
     <div class="wrapper">
@@ -34,47 +42,26 @@ $ git checkout gh-pages
 </code></pre>
 
 <table>
-<thead>
-<tr>
-<th><strong>This is an example table</strong></th>
-<th><strong>description</strong></th>
-<th><strong>result</strong></th>
-<th><strong>time</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>test 1</td>
-<td>should work</td>
-<td>pass</td>
-<td>0:32</td>
-</tr>
-<tr>
-<td>test 2</td>
-<td>should work</td>
-<td>pass</td>
-<td>0:12</td>
-</tr>
-<tr>
-<td>test 3</td>
-<td>should work</td>
-<td>FAIL</td>
-<td>0:52</td>
-</tr>
-<tr>
-<td>test 4</td>
-<td>should work</td>
-<td>pass</td>
-<td>0:31</td>
-</tr>
-<tr>
-<td>test 5</td>
-<td>should work</td>
-<td>pass</td>
-<td>1:17</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <td><strong>{{ test.name }}</strong></td>
+      <td>{{ test.description }}</td>
+      <td>{{ test.time }}</td>
+      <td>{{ test.result }}</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for test in site.data.build01 %}
+    <tr>
+      <td>{{ test.name }}</td>
+      <td>{{ test.description }}</td>
+      <td>{{ test.time }}</td>
+      <td>{{ test.result }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
+
 
 <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
